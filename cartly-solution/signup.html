@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up | Cartly</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="auth-page">
+      <!-- ========== LEFT: IMAGE ========== -->
+      <div class="auth-image">
+        <img src="images/auth-signup.jpg" alt="Colourful shopping bags" />
+        <div class="auth-image-text">
+          <h2>Join 10,000+ happy shoppers</h2>
+          <p>Create a free account to save items, track orders and check out faster.</p>
+        </div>
+      </div>
+
+      <!-- ========== RIGHT: FORM ========== -->
+      <div class="auth-form-side">
+        <a href="index.html" class="logo">
+          <img src="images/logo-mark.svg" alt="Cartly logo" />
+          Cartly
+        </a>
+
+        <h1>Create your account</h1>
+        <p class="auth-subtitle">It only takes a minute. No card needed.</p>
+
+        <div class="alert alert-error" id="signup-alert"></div>
+
+        <form id="signup-form" novalidate>
+          <div class="form-group">
+            <label for="fullName">Full name</label>
+            <input type="text" id="fullName" class="form-control" placeholder="Ada Obi" />
+            <small class="error-text" id="fullName-error"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" class="form-control" placeholder="ada@mail.com" />
+            <small class="error-text" id="email-error"></small>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="password">Password</label>
+              <div class="input-wrapper">
+                <input type="password" id="password" class="form-control" placeholder="At least 6 characters" />
+                <button type="button" class="toggle-password" aria-label="Show password">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+              </div>
+              <small class="error-text" id="password-error"></small>
+            </div>
+
+            <div class="form-group">
+              <label for="confirmPassword">Confirm password</label>
+              <div class="input-wrapper">
+                <input type="password" id="confirmPassword" class="form-control" placeholder="Type it again" />
+                <button type="button" class="toggle-password" aria-label="Show password">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+              </div>
+              <small class="error-text" id="confirmPassword-error"></small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="checkbox">
+              <input type="checkbox" id="terms" />
+              I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>
+            </label>
+            <small class="error-text" id="terms-error"></small>
+          </div>
+
+          <button type="submit" class="btn btn-block">Create account</button>
+        </form>
+
+        <p class="auth-switch">
+          Already have an account? <a href="login.html" class="form-link">Log in</a>
+        </p>
+      </div>
+    </main>
+
+    <script src="js/helpers.js"></script>
+    <script src="js/signup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1335 @@
+/* =========================================================
+   CARTLY - MAIN STYLESHEET
+   Used by every page (landing pages, auth pages and dashboard).
+   Dashboard-only styles live in dashboard.css
+   ========================================================= */
+
+/* ---------- 1. VARIABLES (colours, fonts, sizes) ---------- */
+:root {
+  --primary: #0e7c66;
+  --primary-dark: #0a5c4c;
+  --primary-light: #e7f4f1;
+  --accent: #f59e0b;
+
+  --dark: #1f2937;
+  --grey: #6b7280;
+  --grey-light: #9ca3af;
+  --border: #e5e7eb;
+  --bg: #f5f7f6;
+  --white: #ffffff;
+
+  --error: #dc2626;
+  --success: #16a34a;
+
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(17, 24, 39, 0.06);
+  --transition: all 0.3s ease;
+}
+
+/* ---------- 2. RESET ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--dark);
+  background: var(--white);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ---------- 3. UTILITIES ---------- */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section-grey {
+  background: var(--bg);
+}
+
+.section-title {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 3rem;
+}
+
+.section-title h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+.section-title p {
+  color: var(--grey);
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border-radius: 50px;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ---------- 4. BUTTONS ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  background: var(--primary);
+  color: var(--white);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btn-white {
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--primary);
+}
+
+.btn-white:hover {
+  background: var(--primary-light);
+  border-color: var(--primary-light);
+}
+
+.btn-danger {
+  background: transparent;
+  border-color: var(--error);
+  color: var(--error);
+}
+
+.btn-danger:hover {
+  background: var(--error);
+  border-color: var(--error);
+  color: var(--white);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-sm {
+  padding: 0.45rem 1rem;
+  font-size: 0.875rem;
+}
+
+.btn:disabled {
+  background: var(--border);
+  border-color: var(--border);
+  color: var(--grey);
+  cursor: not-allowed;
+}
+
+/* ---------- 5. LOGO ---------- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.logo img {
+  width: 36px;
+  height: 36px;
+}
+
+/* ---------- 6. NAVBAR ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  color: var(--grey);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--primary);
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--dark);
+}
+
+/* Mobile menu: hidden until .show-menu is added with JavaScript */
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .nav-links,
+  .nav-buttons {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .mobile-menu.show-menu {
+    display: block;
+    padding: 1rem 5% 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .mobile-menu a:not(.btn) {
+    display: block;
+    padding: 0.75rem 0;
+    color: var(--grey);
+    font-weight: 500;
+  }
+
+  .mobile-menu a.active {
+    color: var(--primary);
+  }
+
+  .mobile-menu .btn {
+    width: 100%;
+    margin-top: 0.75rem;
+  }
+}
+
+/* ---------- 7. PAGE HEADER (About / Contact banner) ---------- */
+.page-header {
+  padding: 4.5rem 0;
+  background: var(--primary-light);
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  color: var(--grey);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.breadcrumb {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--grey);
+  margin-bottom: 1rem;
+}
+
+.breadcrumb a {
+  color: var(--primary);
+}
+
+/* ---------- 8. HERO (Home) ---------- */
+.hero {
+  background: var(--primary-light);
+  padding: 4rem 0;
+}
+
+.hero-center {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+.hero h1 {
+  font-size: 3.25rem;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 span {
+  color: var(--primary);
+}
+
+.hero-text p {
+  color: var(--grey);
+  font-size: 1.1rem;
+  max-width: 480px;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.hero-stats h3 {
+  font-size: 1.6rem;
+  color: var(--primary);
+}
+
+.hero-stats p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.hero-img {
+  position: relative;
+}
+
+.hero-img img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.hero-badge {
+  position: absolute;
+  left: -24px;
+  bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.2rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.hero-badge i {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.hero-badge h4 {
+  font-size: 0.95rem;
+}
+
+.hero-badge p {
+  font-size: 0.8rem;
+  color: var(--grey);
+}
+
+/* ---------- 9. CATEGORIES (Home) ---------- */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.category-card {
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  background: var(--bg);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.category-card img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin: 0 auto 1rem;
+}
+
+.category-card h3 {
+  font-size: 1.1rem;
+}
+
+.category-card p {
+  font-size: 0.9rem;
+  color: var(--grey);
+}
+
+/* ---------- 10. PRODUCT CARD (Home, Shop, Product, Wishlist) ---------- */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow);
+}
+
+.product-img {
+  display: block;
+  background: var(--bg);
+  aspect-ratio: 1 / 1;
+  padding: 1.5rem;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: var(--transition);
+}
+
+.product-card:hover .product-img img {
+  transform: scale(1.05);
+}
+
+.wishlist-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2; /* keep it above the zoomed image */
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--grey);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.wishlist-btn:hover,
+.wishlist-btn.active {
+  color: var(--error);
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  padding: 0.2rem 0.65rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--dark);
+  color: var(--white);
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1rem 1.1rem 1.2rem;
+}
+
+.product-category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--grey-light);
+}
+
+.product-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.2rem 0 0.4rem;
+}
+
+.product-name a:hover {
+  color: var(--primary);
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+
+.rating span {
+  margin-left: 0.4rem;
+  color: var(--grey);
+}
+
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.add-cart-btn {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary);
+  color: var(--white);
+  transition: var(--transition);
+}
+
+.add-cart-btn:hover {
+  background: var(--primary-dark);
+}
+
+.add-cart-btn:disabled {
+  background: var(--border);
+  color: var(--grey);
+  cursor: not-allowed;
+}
+
+/* ---------- 11. FEATURES (Home) ---------- */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.feature {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.icon-circle {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+.feature h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.feature p {
+  color: var(--grey);
+  font-size: 0.95rem;
+}
+
+/* ---------- 12. TESTIMONIALS (Home) ---------- */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.testimonial {
+  padding: 2rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.testimonial .rating {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.testimonial > p {
+  color: var(--grey);
+  margin-bottom: 1.5rem;
+}
+
+.person {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.person img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.person h4 {
+  font-size: 1rem;
+}
+
+.person p {
+  font-size: 0.85rem;
+  color: var(--grey);
+}
+
+/* ---------- 13. NEWSLETTER / CTA BAND ---------- */
+.cta {
+  padding: 4rem 2rem;
+  border-radius: 24px;
+  background: var(--primary);
+  color: var(--white);
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.cta p {
+  opacity: 0.85;
+  max-width: 520px;
+  margin: 0 auto 2rem;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+}
+
+.newsletter-message {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  min-height: 1.4rem;
+}
+
+/* ---------- 14. ABOUT PAGE ---------- */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+}
+
+.split img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.split h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.split p {
+  color: var(--grey);
+  margin-bottom: 1rem;
+}
+
+.check-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
+
+.check-list i {
+  color: var(--primary);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.value-card {
+  padding: 2rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.value-card .icon-circle {
+  margin: 0 0 1.25rem;
+}
+
+.value-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.value-card p {
+  color: var(--grey);
+}
+
+.stats-band {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 3rem 2rem;
+  border-radius: 24px;
+  background: var(--dark);
+  color: var(--white);
+  text-align: center;
+}
+
+.stats-band h3 {
+  font-size: 2.25rem;
+  color: var(--accent);
+}
+
+.stats-band p {
+  opacity: 0.8;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.team-card {
+  padding: 2rem 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.team-card img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1rem;
+  border: 4px solid var(--primary-light);
+}
+
+.team-card h3 {
+  font-size: 1.1rem;
+}
+
+.team-card p {
+  color: var(--grey);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.socials a {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--grey);
+  transition: var(--transition);
+}
+
+.socials a:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* ---------- 15. CONTACT PAGE ---------- */
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.info-card {
+  padding: 1.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.info-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.info-card p {
+  color: var(--grey);
+  font-size: 0.95rem;
+}
+
+.contact-center {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contact-center > img {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.form-card {
+  padding: 2.5rem;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background: var(--white);
+}
+
+.form-card h2 {
+  margin-bottom: 0.25rem;
+}
+
+.form-card > p {
+  color: var(--grey);
+  margin-bottom: 1.75rem;
+}
+
+/* FAQ accordion */
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  margin-bottom: 1rem;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.faq-question i {
+  color: var(--primary);
+  transition: var(--transition);
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 1.5rem 1.25rem;
+  color: var(--grey);
+}
+
+.faq.open .faq-answer {
+  display: block;
+}
+
+.faq.open .faq-question i {
+  transform: rotate(45deg);
+}
+
+/* ---------- 16. FORMS (Contact, Login, Sign up, Profile) ---------- */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.1rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--dark);
+  outline: none;
+  transition: var(--transition);
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.form-control.invalid {
+  border-color: var(--error);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 130px;
+}
+
+/* Input with an icon button inside (show / hide password) */
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper .form-control {
+  padding-right: 3rem;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: var(--grey);
+}
+
+.error-text {
+  display: block;
+  min-height: 1.2rem;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--error);
+}
+
+.alert {
+  display: none;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.alert.show {
+  display: block;
+}
+
+.alert-success {
+  background: #dcfce7;
+  color: var(--success);
+}
+
+.alert-error {
+  background: #fee2e2;
+  color: var(--error);
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--grey);
+}
+
+.checkbox input {
+  accent-color: var(--primary);
+  width: 16px;
+  height: 16px;
+}
+
+.checkbox a,
+.form-link {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* ---------- 17. AUTH PAGES (Login / Sign up) ---------- */
+.auth-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+.auth-image {
+  position: relative;
+}
+
+.auth-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.auth-image-text {
+  position: absolute;
+  left: 3rem;
+  right: 3rem;
+  bottom: 3rem;
+  padding: 1.75rem;
+  border-radius: var(--radius);
+  background: rgba(17, 24, 39, 0.75);
+  color: var(--white);
+}
+
+.auth-image-text h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.auth-image-text p {
+  opacity: 0.85;
+}
+
+.auth-form-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 10%;
+}
+
+.auth-form-side .logo {
+  margin-bottom: 2.5rem;
+}
+
+.auth-form-side h1 {
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+.auth-subtitle {
+  color: var(--grey);
+  margin-bottom: 2rem;
+}
+
+.auth-switch {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: var(--grey);
+}
+
+/* ---------- 18. FOOTER ---------- */
+.footer {
+  background: var(--dark);
+  color: #d1d5db;
+  padding: 4.5rem 0 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 2.5rem;
+  padding-bottom: 3rem;
+}
+
+.footer .logo {
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.footer p {
+  font-size: 0.95rem;
+}
+
+.footer h4 {
+  color: var(--white);
+  margin-bottom: 1.1rem;
+}
+
+.footer-links li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-links a:hover {
+  color: var(--white);
+}
+
+.footer-contact li {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 0.8rem;
+}
+
+.footer-contact i {
+  color: var(--accent);
+  margin-top: 0.3rem;
+}
+
+.footer .socials {
+  justify-content: flex-start;
+  margin-top: 1.5rem;
+}
+
+.footer .socials a {
+  background: rgba(255, 255, 255, 0.08);
+  color: #d1d5db;
+}
+
+.footer-bottom {
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ---------- 19. RESPONSIVE ---------- */
+@media (max-width: 1024px) {
+  .products-grid,
+  .categories-grid,
+  .features-grid,
+  .team-grid,
+  .contact-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .hero-center,
+  .split,
+  .contact-center,
+  .testimonials-grid,
+  .values-grid,
+  .auth-page {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-img img,
+  .split img {
+    height: 320px;
+  }
+
+  .hero-badge {
+    left: 16px;
+    bottom: 16px;
+  }
+
+  .stats-band {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-center > img {
+    min-height: 260px;
+    height: 260px;
+  }
+
+  .form-card {
+    padding: 1.75rem;
+  }
+
+  .auth-image {
+    display: none;
+  }
+
+  .auth-form-side {
+    padding: 2.5rem 5%;
+  }
+
+  .page-header h1,
+  .section-title h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .products-grid {
+    gap: 1rem;
+  }
+
+  .categories-grid {
+    gap: 1rem;
+  }
+
+  .category-card img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .features-grid,
+  .team-grid,
+  .contact-info-grid,
+  .footer-grid,
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stats {
+    gap: 1.5rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 420px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-img {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* ---------- 20. TOAST (small pop-up message) ---------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 2rem;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 50px;
+  background: var(--dark);
+  color: var(--white);
+  font-size: 0.9rem;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 20px);
+  transition: var(--transition);
+}
+
+.toast i {
+  color: #4ade80;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}

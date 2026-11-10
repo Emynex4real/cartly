@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Wishlist | Cartly</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body class="dashboard-body">
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+      <a href="index.html" class="logo">
+        <img src="images/logo-mark.svg" alt="Cartly logo" />
+        Cartly
+      </a>
+      <button class="sidebar-close" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <nav class="sidebar-links">
+        <a href="dashboard.html"><i class="fa-solid fa-house"></i> Overview</a>
+        <a href="shop.html"><i class="fa-solid fa-store"></i> Shop</a>
+        <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Cart</a>
+        <a href="wishlist.html" class="active"><i class="fa-solid fa-heart"></i> Wishlist</a>
+        <a href="orders.html"><i class="fa-solid fa-box"></i> Orders</a>
+        <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+      </nav>
+
+      <button class="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i> Log out
+      </button>
+    </aside>
+    <div class="overlay"></div>
+
+    <div class="main">
+      <!-- ================= TOP BAR ================= -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-btn" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <h1>My Wishlist</h1>
+        </div>
+
+        <div class="topbar-right">
+          <a href="wishlist.html" class="icon-link" aria-label="Wishlist">
+            <i class="fa-regular fa-heart"></i>
+            <span class="count wishlist-count">0</span>
+          </a>
+          <a href="cart.html" class="icon-link" aria-label="Cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="count cart-count">0</span>
+          </a>
+          <a href="profile.html" class="user-chip">
+            <span class="avatar user-initials"></span>
+            <div>
+              <p class="user-name"></p>
+              <span>Customer</span>
+            </div>
+          </a>
+        </div>
+      </header>
+
+      <!-- ================= PAGE CONTENT ================= -->
+      <main class="content">
+        <div class="card-header">
+          <p class="results-text" id="wishlist-text"></p>
+          <button class="btn btn-sm" id="add-all-btn">
+            <i class="fa-solid fa-cart-plus"></i> Add all to cart
+          </button>
+        </div>
+
+        <div class="products-grid" id="wishlist-grid"></div>
+      </main>
+    </div>
+
+    <script src="js/helpers.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/wishlist.js"></script>
+  </body>
+</html>

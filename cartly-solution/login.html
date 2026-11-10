@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log In | Cartly</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="auth-page">
+      <!-- ========== LEFT: IMAGE ========== -->
+      <div class="auth-image">
+        <img src="images/auth-login.jpg" alt="Person holding a paper shopping bag" />
+        <div class="auth-image-text">
+          <h2>Welcome back!</h2>
+          <p>Your cart, wishlist and orders are waiting for you.</p>
+        </div>
+      </div>
+
+      <!-- ========== RIGHT: FORM ========== -->
+      <div class="auth-form-side">
+        <a href="index.html" class="logo">
+          <img src="images/logo-mark.svg" alt="Cartly logo" />
+          Cartly
+        </a>
+
+        <h1>Log in to your account</h1>
+        <p class="auth-subtitle">Enter your email and password to continue.</p>
+
+        <div class="alert" id="login-alert"></div>
+
+        <form id="login-form" novalidate>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" class="form-control" placeholder="ada@mail.com" />
+            <small class="error-text" id="email-error"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-wrapper">
+              <input type="password" id="password" class="form-control" placeholder="Your password" />
+              <button type="button" class="toggle-password" aria-label="Show password">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+            <small class="error-text" id="password-error"></small>
+          </div>
+
+          <button type="submit" class="btn btn-block">Log in</button>
+        </form>
+
+        <p class="auth-switch">
+          Don't have an account? <a href="signup.html" class="form-link">Sign up</a>
+        </p>
+      </div>
+    </main>
+
+    <script src="js/helpers.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>

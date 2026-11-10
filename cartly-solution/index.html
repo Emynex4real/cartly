@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cartly | Shop Smarter, Live Better</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+
+    <!-- Google Font: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+      <nav class="container nav-center">
+        <a href="index.html" class="logo">
+          <img src="images/logo-mark.svg" alt="Cartly logo" />
+          Cartly
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="nav-buttons auth-links">
+          <a href="login.html" class="btn btn-outline">Log in</a>
+          <a href="signup.html" class="btn">Sign up</a>
+        </div>
+
+        <button class="nav-toggle" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </nav>
+
+      <div class="mobile-menu">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <div class="auth-links">
+          <a href="login.html" class="btn btn-outline">Log in</a>
+          <a href="signup.html" class="btn">Sign up</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ================= HERO ================= -->
+      <section class="hero">
+        <div class="container hero-center">
+          <div class="hero-text">
+            <span class="tag">New season, new deals</span>
+            <h1>Shop smarter. <span>Live better.</span></h1>
+            <p>
+              Discover quality electronics, fashion, home items and beauty
+              products at fair prices, delivered to your door anywhere in
+              Nigeria.
+            </p>
+            <div class="hero-buttons">
+              <a href="signup.html" class="btn">
+                Start shopping <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a href="about.html" class="btn btn-outline">Learn more</a>
+            </div>
+            <div class="hero-stats">
+              <div>
+                <h3>10k+</h3>
+                <p>Happy customers</p>
+              </div>
+              <div>
+                <h3>500+</h3>
+                <p>Quality products</p>
+              </div>
+              <div>
+                <h3>4.8</h3>
+                <p>Average rating</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-img">
+            <img src="images/hero.jpg" alt="Woman holding shopping bags" />
+            <div class="hero-badge">
+              <i class="fa-solid fa-truck-fast"></i>
+              <div>
+                <h4>Free delivery</h4>
+                <p>On orders above ₦50,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CATEGORIES ================= -->
+      <section class="section">
+        <div class="container">
+          <div class="section-title">
+            <h2>Shop by category</h2>
+            <p>Everything you need, sorted into four simple categories.</p>
+          </div>
+
+          <div class="categories-grid">
+            <a href="shop.html?category=electronics" class="category-card">
+              <img src="images/products/wireless-earbuds.webp" alt="Electronics" />
+              <h3>Electronics</h3>
+              <p>6 products</p>
+            </a>
+            <a href="shop.html?category=fashion" class="category-card">
+              <img src="images/products/high-top-sneakers.webp" alt="Fashion" />
+              <h3>Fashion</h3>
+              <p>6 products</p>
+            </a>
+            <a href="shop.html?category=home" class="category-card">
+              <img src="images/products/table-lamp.webp" alt="Home and kitchen" />
+              <h3>Home</h3>
+              <p>6 products</p>
+            </a>
+            <a href="shop.html?category=beauty" class="category-card">
+              <img src="images/products/noir-perfume.webp" alt="Beauty" />
+              <h3>Beauty</h3>
+              <p>6 products</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= FEATURED PRODUCTS (filled by JavaScript) ================= -->
+      <section class="section section-grey">
+        <div class="container">
+          <div class="section-title">
+            <h2>Featured products</h2>
+            <p>Hand-picked favourites our customers love this month.</p>
+          </div>
+
+          <div class="products-grid" id="featured-products">
+            <!-- product cards are added here by main.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= WHY CHOOSE US ================= -->
+      <section class="section">
+        <div class="container">
+          <div class="section-title">
+            <h2>Why shop with Cartly?</h2>
+            <p>We make online shopping simple, safe and stress-free.</p>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature">
+              <div class="icon-circle"><i class="fa-solid fa-truck-fast"></i></div>
+              <h3>Fast delivery</h3>
+              <p>Get your order in 1 to 3 days in major cities.</p>
+            </div>
+            <div class="feature">
+              <div class="icon-circle"><i class="fa-solid fa-shield-halved"></i></div>
+              <h3>Secure payment</h3>
+              <p>Your payment details are always kept safe.</p>
+            </div>
+            <div class="feature">
+              <div class="icon-circle"><i class="fa-solid fa-rotate-left"></i></div>
+              <h3>Easy returns</h3>
+              <p>Not happy? Return any item within 7 days.</p>
+            </div>
+            <div class="feature">
+              <div class="icon-circle"><i class="fa-solid fa-headset"></i></div>
+              <h3>24/7 support</h3>
+              <p>Our friendly team is always here to help.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TESTIMONIALS ================= -->
+      <section class="section section-grey">
+        <div class="container">
+          <div class="section-title">
+            <h2>What our customers say</h2>
+            <p>Thousands of people shop with us every week.</p>
+          </div>
+
+          <div class="testimonials-grid">
+            <article class="testimonial">
+              <div class="rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p>
+                "My blender arrived in two days and it works perfectly. The
+                prices are the best I've seen online."
+              </p>
+              <div class="person">
+                <img src="images/avatars/customer-funmi.jpg" alt="Funmi Adebayo" />
+                <div>
+                  <h4>Funmi Adebayo</h4>
+                  <p>Lagos</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial">
+              <div class="rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <p>
+                "Ordering is so easy and I can track everything from my
+                dashboard. Customer support was very helpful."
+              </p>
+              <div class="person">
+                <img src="images/avatars/customer-chidi.jpg" alt="Chidi Okafor" />
+                <div>
+                  <h4>Chidi Okafor</h4>
+                  <p>Enugu</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial">
+              <div class="rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p>
+                "I love the wishlist feature. I save things I like and buy
+                them when I'm ready. Great experience!"
+              </p>
+              <div class="person">
+                <img src="images/avatars/customer-grace.jpg" alt="Grace Musa" />
+                <div>
+                  <h4>Grace Musa</h4>
+                  <p>Abuja</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= NEWSLETTER ================= -->
+      <section class="section">
+        <div class="container">
+          <div class="cta">
+            <h2>Get 10% off your first order</h2>
+            <p>Join our newsletter and be the first to hear about new products and special deals.</p>
+            <form class="newsletter-form" novalidate>
+              <input type="email" name="email" placeholder="Enter your email address" />
+              <button type="submit" class="btn btn-white">Subscribe</button>
+            </form>
+            <p class="newsletter-message"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="logo">
+            <img src="images/logo-mark.svg" alt="Cartly logo" />
+            Cartly
+          </a>
+          <p>Quality products at fair prices, delivered to your door anywhere in Nigeria.</p>
+          <div class="socials">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Account</h4>
+          <ul class="footer-links">
+            <li><a href="login.html">Log in</a></li>
+            <li><a href="signup.html">Sign up</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Get in touch</h4>
+          <ul class="footer-contact">
+            <li><i class="fa-solid fa-location-dot"></i> 12 Admiralty Way, Lekki, Lagos</li>
+            <li><i class="fa-solid fa-phone"></i> +234 801 234 5678</li>
+            <li><i class="fa-solid fa-envelope"></i> hello@cartly.ng</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Cartly. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="js/helpers.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop | Cartly</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body class="dashboard-body">
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+      <a href="index.html" class="logo">
+        <img src="images/logo-mark.svg" alt="Cartly logo" />
+        Cartly
+      </a>
+      <button class="sidebar-close" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <nav class="sidebar-links">
+        <a href="dashboard.html"><i class="fa-solid fa-house"></i> Overview</a>
+        <a href="shop.html" class="active"><i class="fa-solid fa-store"></i> Shop</a>
+        <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Cart</a>
+        <a href="wishlist.html"><i class="fa-solid fa-heart"></i> Wishlist</a>
+        <a href="orders.html"><i class="fa-solid fa-box"></i> Orders</a>
+        <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+      </nav>
+
+      <button class="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i> Log out
+      </button>
+    </aside>
+    <div class="overlay"></div>
+
+    <div class="main">
+      <!-- ================= TOP BAR ================= -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-btn" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <h1>Shop</h1>
+        </div>
+
+        <div class="topbar-right">
+          <a href="wishlist.html" class="icon-link" aria-label="Wishlist">
+            <i class="fa-regular fa-heart"></i>
+            <span class="count wishlist-count">0</span>
+          </a>
+          <a href="cart.html" class="icon-link" aria-label="Cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="count cart-count">0</span>
+          </a>
+          <a href="profile.html" class="user-chip">
+            <span class="avatar user-initials"></span>
+            <div>
+              <p class="user-name"></p>
+              <span>Customer</span>
+            </div>
+          </a>
+        </div>
+      </header>
+
+      <!-- ================= PAGE CONTENT ================= -->
+      <main class="content">
+        <!-- Search + sort -->
+        <div class="filters">
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="search" class="form-control" placeholder="Search products..." />
+          </div>
+          <select id="sort" class="form-control">
+            <option value="default">Sort by: Featured</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="name">Name: A to Z</option>
+            <option value="rating">Top rated</option>
+          </select>
+        </div>
+
+        <!-- Category buttons (made by JavaScript) -->
+        <div class="category-buttons" id="category-buttons"></div>
+
+        <p class="results-text" id="results-text"></p>
+
+        <!-- Product cards (made by JavaScript) -->
+        <div class="products-grid" id="products"></div>
+      </main>
+    </div>
+
+    <script src="js/helpers.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/shop.js"></script>
+  </body>
+</html>
